@@ -1,0 +1,88 @@
+Manifest-Version: 1.0
+Main-Class: com.its.esales.framework.jobs.controllers.ProductStoreManual
+Class-Path: spark-sql_2.12-3.3.4.jar jetty-servlet-9.4.40.v20210413.jar 
+ hk2-api-2.6.1.jar spark-catalyst_2.12-3.3.4.jar jersey-container-servle
+ t-2.36.jar jetty-util-ajax-9.4.40.v20210413.jar chill_2.12-0.10.0.jar a
+ vro-mapred-1.11.0.jar javax.annotation-api-1.3.2.jar ivy-2.5.1.jar kerb
+ -simplekdc-1.0.1.jar commons-compiler-3.0.16.jar orc-core-1.7.10.jar me
+ trics-graphite-4.2.7.jar kerb-util-1.0.1.jar arrow-memory-netty-7.0.0.j
+ ar jersey-hk2-2.36.jar unused-1.0.0.jar jsr311-api-1.1.1.jar jetty-secu
+ rity-9.4.40.v20210413.jar commons-collections4-4.4.jar scala-parser-com
+ binators_2.12-1.1.2.jar kafka-clients-2.8.1.jar xz-1.9.jar log4j-1.2-ap
+ i-2.17.2.jar commons-lang3-3.12.0.jar jersey-core-1.19.jar curator-fram
+ ework-4.2.0.jar chill-java-0.10.0.jar jersey-servlet-1.19.jar zookeeper
+ -jute-3.6.2.jar aws-java-sdk-bundle-1.11.901.jar annotations-17.0.0.jar
+  spark-sketch_2.12-3.3.4.jar jetty-server-9.4.40.v20210413.jar commons-
+ lang-2.6.jar leveldbjni-all-1.8.jar jackson-module-scala_2.12-2.13.4.ja
+ r json4s-jackson_2.12-3.7.0-M11.jar wildfly-openssl-1.0.7.Final.jar net
+ ty-transport-native-kqueue-4.1.74.Final-osx-aarch_64.jar xbean-asm9-sha
+ ded-4.20.jar flatbuffers-java-1.12.0.jar jakarta.annotation-api-1.3.5.j
+ ar kerby-pkix-1.0.1.jar threeten-extra-1.5.0.jar jmespath-java-1.12.66.
+ jar guava-27.0.1-jre.jar commons-compress-1.21.jar kerb-admin-1.0.1.jar
+  jcip-annotations-1.0-1.jar kerby-asn1-1.0.1.jar parquet-format-structu
+ res-1.12.2.jar checker-qual-3.5.0.jar jakarta.activation-api-1.2.1.jar 
+ jetty-xml-9.4.40.v20210413.jar metrics-jvm-4.2.7.jar commons-collection
+ s-3.2.2.jar netty-transport-native-epoll-4.1.74.Final.jar hive-storage-
+ api-2.7.2.jar netty-transport-classes-kqueue-4.1.74.Final.jar avro-ipc-
+ 1.11.0.jar netty-resolver-4.1.74.Final.jar javassist-3.25.0-GA.jar slf4
+ j-api-1.7.35.jar aopalliance-repackaged-2.6.1.jar jcl-over-slf4j-1.7.32
+ .jar re2j-1.1.jar spark-unsafe_2.12-3.3.4.jar hadoop-annotations-3.3.1.
+ jar spark-token-provider-kafka-0-10_2.12-3.3.4.jar stax-api-1.0-2.jar s
+ park-network-common_2.12-3.3.4.jar json-smart-2.4.2.jar hadoop-aws-3.3.
+ 1.jar jersey-json-1.19.jar jetty-webapp-9.4.40.v20210413.jar shims-0.9.
+ 25.jar postgresql-42.5.0.jar scala-library-2.12.15.jar curator-client-4
+ .2.0.jar audience-annotations-0.12.0.jar jaxb-impl-2.2.3-1.jar jersey-c
+ ommon-2.36.jar parquet-jackson-1.12.2.jar woodstox-core-5.3.0.jar jakar
+ ta.inject-2.6.1.jar lz4-java-1.8.0.jar snappy-java-1.1.8.4.jar stream-2
+ .9.6.jar aws-java-sdk-kms-1.12.66.jar hadoop-client-runtime-3.3.2.jar c
+ ommons-codec-1.15.jar metrics-json-4.2.7.jar netty-buffer-4.1.74.Final.
+ jar hadoop-shaded-protobuf_3_7-1.1.1.jar log4j-api-2.22.1.jar jersey-se
+ rver-1.19.jar jakarta.servlet-api-4.0.3.jar curator-recipes-4.2.0.jar c
+ ommons-logging-1.2.jar animal-sniffer-annotations-1.17.jar stax2-api-4.
+ 2.1.jar jersey-container-servlet-core-2.36.jar univocity-parsers-2.9.1.
+ jar arrow-format-7.0.0.jar netty-transport-native-kqueue-4.1.74.Final-o
+ sx-x86_64.jar activation-1.1.1.jar parquet-column-1.12.2.jar protobuf-j
+ ava-3.14.0.jar oro-2.0.8.jar parquet-hadoop-1.12.2.jar hk2-locator-2.6.
+ 1.jar RoaringBitmap-0.9.25.jar metrics-jmx-4.2.7.jar kerby-xdr-1.0.1.ja
+ r netty-all-4.1.74.Final.jar json4s-scalap_2.12-3.7.0-M11.jar accessors
+ -smart-2.4.2.jar spark-streaming_2.12-3.3.4.jar pickle-1.2.jar spark-kv
+ store_2.12-3.3.4.jar kerb-client-1.0.1.jar rocksdbjni-6.20.3.jar common
+ s-crypto-1.1.0.jar commons-math3-3.6.1.jar metrics-core-4.2.7.jar j2obj
+ c-annotations-1.1.jar arrow-vector-7.0.0.jar commons-cli-1.2.jar jackso
+ n-jaxrs-1.9.2.jar compress-lzf-1.1.jar joda-time-2.8.1.jar listenablefu
+ ture-9999.0-empty-to-avoid-conflict-with-guava.jar py4j-0.10.9.5.jar kr
+ yo-shaded-4.0.2.jar log4j-slf4j-impl-2.17.2.jar aircompressor-0.21.jar 
+ zookeeper-3.6.2.jar jackson-mapper-asl-1.9.2.jar hadoop-auth-3.3.1.jar 
+ dnsjava-2.1.7.jar htrace-core4-4.1.0-incubating.jar kerby-util-1.0.1.ja
+ r hadoop-client-api-3.3.2.jar objenesis-2.5.1.jar jackson-core-asl-1.9.
+ 2.jar hadoop-common-3.3.1.jar log4j-1.2.17.jar parquet-common-1.12.2.ja
+ r netty-transport-classes-epoll-4.1.74.Final.jar netty-common-4.1.74.Fi
+ nal.jar log4j-core-2.22.1.jar jetty-http-9.4.40.v20210413.jar netty-tcn
+ ative-classes-2.0.48.Final.jar jsch-0.1.55.jar commons-pool2-2.11.1.jar
+  avro-1.11.0.jar kerb-common-1.0.1.jar spark-launcher_2.12-3.3.4.jar ke
+ rb-core-1.0.1.jar paranamer-2.8.jar jetty-io-9.4.40.v20210413.jar netty
+ -handler-4.1.74.Final.jar spark-sql-kafka-0-10_2.12-3.3.4.jar config-1.
+ 4.2.jar jsr305-3.0.2.jar gson-2.8.6.jar javax.servlet-api-3.1.0.jar orc
+ -mapreduce-1.7.10.jar json4s-core_2.12-3.7.0-M11.jar scala-xml_2.12-1.2
+ .0.jar spark-tags_2.12-3.3.4.jar jackson-databind-2.13.4.2.jar janino-3
+ .0.16.jar jersey-client-2.36.jar jul-to-slf4j-1.7.32.jar commons-beanut
+ ils-1.9.4.jar httpclient-4.5.13.jar jackson-xc-1.9.2.jar osgi-resource-
+ locator-1.0.3.jar spark-core_2.12-3.3.4.jar nimbus-jose-jwt-9.8.1.jar e
+ rror_prone_annotations-2.2.0.jar failureaccess-1.0.1.jar jackson-core-2
+ .13.4.jar scala-reflect-2.12.15.jar antlr4-runtime-4.8.jar commons-text
+ -1.10.0.jar json4s-ast_2.12-3.7.0-M11.jar minlog-1.3.0.jar netty-transp
+ ort-native-epoll-4.1.74.Final-linux-x86_64.jar jackson-dataformat-cbor-
+ 2.12.3.jar jettison-1.1.jar token-provider-1.0.1.jar kerb-server-1.0.1.
+ jar httpcore-4.4.13.jar parquet-encoding-1.12.2.jar commons-io-2.11.0.j
+ ar hadoop-shaded-guava-1.1.1.jar jersey-server-2.36.jar slf4j-log4j12-1
+ .7.30.jar arrow-memory-core-7.0.0.jar netty-transport-native-unix-commo
+ n-4.1.74.Final.jar jakarta.ws.rs-api-2.1.6.jar kerb-identity-1.0.1.jar 
+ spark-network-shuffle_2.12-3.3.4.jar jackson-annotations-2.13.4.jar tin
+ k-1.6.1.jar jsp-api-2.1.jar netty-transport-native-epoll-4.1.74.Final-l
+ inux-aarch_64.jar kerby-config-1.0.1.jar asm-8.0.1.jar zstd-jni-1.5.2-1
+ .jar redshift-jdbc42-2.1.0.24.jar jetty-util-9.4.40.v20210413.jar aws-j
+ ava-sdk-core-1.12.66.jar jakarta.validation-api-2.0.2.jar commons-confi
+ guration2-2.1.1.jar ion-java-1.0.2.jar netty-codec-4.1.74.Final.jar com
+ mons-net-3.6.jar kerb-crypto-1.0.1.jar orc-shims-1.7.10.jar netty-trans
+ port-4.1.74.Final.jar hk2-utils-2.6.1.jar
+
