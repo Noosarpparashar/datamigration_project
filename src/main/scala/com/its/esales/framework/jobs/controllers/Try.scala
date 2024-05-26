@@ -5,7 +5,7 @@ import org.apache.spark.sql.SparkSession
 object Try extends App {
   val spark: SparkSession = SparkSession.builder()
     //.master("local[1]")
-    .appName("SparkByExamples3.com")
+    .appName("SparkByExamples4.com")
     .getOrCreate()
  // spark.sparkContext.setLogLevel("INFO")
 
