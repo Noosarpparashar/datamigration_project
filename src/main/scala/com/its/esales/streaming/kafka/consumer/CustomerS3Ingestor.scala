@@ -30,7 +30,7 @@ class CustomerS3Ingestor(spark: SparkSession) extends Job {
   val dateFormat = "yyyyMMdd_HHmmss"
   private val dateTimeFormatter = DateTimeFormatter.ofPattern(dateFormat)
   println("1111")
-  val kafkaDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBootstrapServers) .option("subscribe", topic).load()
+  val kafkaDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBootstrapServers).option("subscribe", topic).load()
   println("2222")
   val jsonParsedDF = kafkaDF
     .selectExpr("CAST(value as STRING) as jsonString")
@@ -38,26 +38,24 @@ class CustomerS3Ingestor(spark: SparkSession) extends Job {
     .select(from_json(col("jsonString"), schema).as("json"))
     .select("json.*")
 
-   // .select(json_tuple(col("value"), "CustomerId", "CustomerName", "CustomerAdd"))
-    //.select(from_json(col("cleanedJsonString"), schema).as("json"))
-    //.toDF("schema", "payload")
+  // .select(json_tuple(col("value"), "CustomerId", "CustomerName", "CustomerAdd"))
+  //.select(from_json(col("cleanedJsonString"), schema).as("json"))
+  //.toDF("schema", "payload")
 
   jsonParsedDF.writeStream
-//    .format("console")
-//    .option("truncate", false)
+    //    .format("console")
+    //    .option("truncate", false)
     //.outputMode("append")
-//    .start()
-//    .awaitTermination()
+    //    .start()
+    //    .awaitTermination()
     .format("parquet")
     .outputMode("append")
     .option("checkpointLocation", checkpointLocation)
     .option("path", path + LocalDateTime.now().format(dateTimeFormatter))
     .start()
     .awaitTermination()
-  println("3333")
 
 
   // Wait for the streaming query to terminate
-
 
 }

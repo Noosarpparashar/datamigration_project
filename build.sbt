@@ -21,7 +21,10 @@ val dependencies = Seq(
   "com.amazon.redshift" % "redshift-jdbc42" % "2.1.0.24",
   "com.softwaremill.macwire" %% "macros" % "2.4.0" % Provided,
   "org.apache.logging.log4j" % "log4j-core" % "2.22.1",
-  "org.apache.logging.log4j" % "log4j-api" % "2.22.1"
+  "net.snowflake" % "snowflake-jdbc" % "3.16.0",
+  "net.snowflake" %% "spark-snowflake" % "2.15.0-spark_3.3"
+
+
 
 
 

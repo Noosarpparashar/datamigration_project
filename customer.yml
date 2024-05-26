@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-spark-job  # Pod name
+  labels:
+    app: my-spark-job
+spec:
+  serviceAccountName: default  # Default service account, customize if needed
+  containers:
+    - name: spark-driver  # Container name
+      image: 8084500696/my-spark-job:latest  # Your Docker image
+      command:
+        - /opt/spark/bin/spark-submit
+        - "--class"
+        - com.its.esales.framework.jobs.controllers.Try  # Your main class
+        - "--master"
+        - k8s://https://kubernetes.default.svc:443  # Kubernetes API endpoint
+        - "--deploy-mode"
+        - client  # Deployment mode
+        - "/opt/spark/jars/ecart-migration-assembly-0.1.0-SNAPSHOT.jar"  # JAR path in the container
+      imagePullPolicy: Always  # Always pull latest image
+      resources:  # Resource requests and limits
+        requests:
+          cpu: "1"  # Customize as needed
+          memory: "1Gi"
+        limits:
+          cpu: "2"
+          memory: "2Gi"
+      env:  # Environment variables (customize as needed)
+        - name: SPARK_EXECUTOR_INSTANCES
+          value: "2"
+      volumeMounts:  # If you have volume mounts, define them here
+        - name: spark-volume
+          mountPath: /mnt/spark
+  volumes:  # If you have volumes (PVC), define them here
+    - name: spark-volume
+      persistentVolumeClaim:
+        claimName: my-pvc  # Replace with your PVC name
+  restartPolicy: Never  # Do not restart on failure
+  imagePullSecrets:
+    - name: my-image-pull-secret  # If you need an image pull secret

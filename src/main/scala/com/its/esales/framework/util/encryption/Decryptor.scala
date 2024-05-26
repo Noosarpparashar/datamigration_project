@@ -10,13 +10,15 @@ import java.nio.ByteBuffer
 
 
 class Decryptor {
+  val accessKey = sys.env.getOrElse("AWS_ACCESS_KEY", "")
+  val secretKey = sys.env.getOrElse("AWS_SECRET_ACCESS_KEY", "")
 
-  val awsCredentials1 = new BasicAWSCredentials("AKIAYS2NSSMZDMCFVDV7", "AHAXqOcOOTdUQ1qrZxN6AUaYdqbwFU/purHNllih")
+  val awsCredentials1 = new BasicAWSCredentials(accessKey, secretKey)
 
 
   val kmsClient = AWSKMSClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(awsCredentials1))
-    .withRegion(Regions.US_EAST_1)
+    .withRegion(Regions.US_EAST_2)
     .build()
 
   def decodeData(encodedData: String) = {

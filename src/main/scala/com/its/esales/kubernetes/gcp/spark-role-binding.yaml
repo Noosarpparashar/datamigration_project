@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: spark-role-binding
+  namespace: esales-staging
+subjects:
+  - kind: ServiceAccount
+    name: spark-service-account  # Replace with your service account name
+    namespace: esales-staging
+roleRef:
+  kind: Role
+  name: spark-role
+  apiGroup: rbac.authorization.k8s.io

@@ -15,16 +15,16 @@ object Encryptor1 extends App {
 
       "")
     .getOrCreate()
-  lazy val awsCredentials = new BasicAWSCredentials("AKIAYS2NSSMZDMCFVDV7", "AHAXqOcOOTdUQ1qrZxN6AUaYdqbwFU/purHNllih")
+  lazy val awsCredentials = new BasicAWSCredentials("AKIA5FTZBCA3VCUSD74S", "V5r427q7r0Fe3IfaKvvUYDPgRNVxWeuJbPC/V3Pv")
 
 
   val kmsClient = AWSKMSClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-    .withRegion(Regions.US_EAST_1)
+    .withRegion(Regions.US_EAST_2)
     .build()
 
   // Define plaintext data (eagerly)
-  val plaintextData = "Admin12345678"
+  val plaintextData = "Dataloader123"
   val plaintextByteBuffer = ByteBuffer.wrap(plaintextData.getBytes())
 
   // Define a lazy val for customer master key
@@ -34,7 +34,7 @@ object Encryptor1 extends App {
   val encryptRequest = new com.amazonaws.services.kms.model.EncryptRequest()
     .withKeyId(customerMasterKey)
     .withPlaintext(plaintextByteBuffer)
-  println("3333333",encryptRequest)
+  println("***************MyEncryptedText*********************",encryptRequest)
   val encryptResponse = kmsClient.encrypt(encryptRequest)
   val encryptedData = encryptResponse.getCiphertextBlob.array()
 

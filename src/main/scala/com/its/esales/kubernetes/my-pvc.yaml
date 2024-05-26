@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc  # Name of the PVC
+  namespace: esales-staging  # Namespace for the PVC
+spec:
+  accessModes:
+    - ReadWriteOnce  # Access mode (ReadWriteOnce, ReadWriteMany, ReadOnlyMany)
+  resources:
+    requests:
+      storage: 10Gi

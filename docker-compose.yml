@@ -5,15 +5,16 @@ services:
     ports:
       - '7077:7077'
       - '7078:8082'
+      - '4040:4040'
     environment:
       - SPARK_MODE=master
       - CUSTOMER_MASTER_KEY=$CUSTOMER_MASTER_KEY
       - AWS_ACCESS_KEY=$AWS_ACCESS_KEY
-      - AWS_SECRET_KEY=$AWS_SECRET_KEY
+      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
     #env_file:
     #  - /myenv/common.env
     volumes:
-      - ".:/test-files:rw"
+      - "./target/scala-2.12/ecart-migration-assembly-0.1.0-SNAPSHOT.jar:/opt/bitnami/spark/myjars/ecart-migration-assembly-0.1.0-SNAPSHOT.jar:rw"
     networks:
       - my-network
   worker1:
@@ -26,6 +27,15 @@ services:
     networks:
       - my-network
   worker2:
+    image: 'bitnami/spark:3.3.2-debian-11-r134'
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+    networks:
+      - my-network
+  worker3:
     image: 'bitnami/spark:3.3.2-debian-11-r134'
     environment:
       - SPARK_MODE=worker

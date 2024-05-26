@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-spark-job2
+  namespace: esales-staging
+  labels:
+    app: my-spark-job2
+spec:
+  serviceAccountName: spark-service-account
+  containers:
+    - name: spark-driver
+      image: 8084500696/my-spark-job:2507
+      command:
+        - /opt/spark/bin/spark-submit
+        - "--class"
+        - com.its.esales.framework.jobs.controllers.IMDBNames
+        - "--master"
+        - k8s://https://kubernetes.default.svc:443
+        - "--deploy-mode"
+        - client
+        - "--conf"
+        - "spark.kubernetes.container.image=8084500696/my-spark-job:2508"
+        - "--conf"
+        - "spark.executor.instances=2"
+        - "--conf"
+        - "spark.kubernetes.namespace=esales-staging"  # Specify the namespace for executors
+        - "/opt/spark/jars/ecart-migration-assembly-0.1.0-SNAPSHOT.jar"
+      imagePullPolicy: Always
+      resources:
+        requests:
+          cpu: "0.5"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+      envFrom:
+        - configMapRef:
+            name: my-configmap
+      env:
+        - name: SPARK_EXECUTOR_INSTANCES
+          value: "2"
+      volumeMounts:
+        - name: spark-volume
+          mountPath: /mnt/spark
+  volumes:
+    - name: spark-volume
+      persistentVolumeClaim:
+        claimName: my-pvc
+  restartPolicy: Never
+  imagePullSecrets:
+    - name: my-image-pull-secret
