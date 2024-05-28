@@ -9,7 +9,8 @@ spec:
   serviceAccountName: spark-service-account
   containers:
     - name: spark-driver
-      image: northamerica-northeast1-docker.pkg.dev/striped-booking-422408-n5/sparkonkubernetes/my-spark-job:bef0383
+      image: {IMAGE}
+      #image: northamerica-northeast1-docker.pkg.dev/striped-booking-422408-n5/sparkonkubernetes/my-spark-job:bef0383
       command:
         - /opt/spark/bin/spark-submit
         - "--class"
