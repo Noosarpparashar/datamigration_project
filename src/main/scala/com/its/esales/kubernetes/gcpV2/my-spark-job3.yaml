@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-spark-job2
+  name: my-spark-job3
   namespace: esales-staging
   labels:
-    app: my-spark-job2
+    app: my-spark-job3
 spec:
   serviceAccountName: spark-service-account
   containers:
     - name: spark-driver
-      image: ${IMAGE}
+      image: northamerica-northeast1-docker.pkg.dev/striped-booking-422408-n5/sparkonkubernetes/my-spark-job:bef0383
       command:
         - /opt/spark/bin/spark-submit
         - "--class"
@@ -48,4 +48,4 @@ spec:
         claimName: my-pvc
   restartPolicy: Never
   imagePullSecrets:
-    - name: my-image-pull-secret
+    - name: gcr-json-key
