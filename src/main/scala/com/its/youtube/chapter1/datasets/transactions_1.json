@@ -1,0 +1,113 @@
+[
+  {
+    "transaction_id": "T001",
+    "customer_id": "C001",
+    "items": [
+      {
+        "item_id": "I016",
+        "product_name": "Monitor",
+        "quantity": 1,
+        "price": 187.49
+      },
+      {
+        "item_id": "I006",
+        "product_name": "Keyboard",
+        "quantity": 4,
+        "price": 123.07
+      },
+      {
+        "item_id": "I012",
+        "product_name": "Mouse",
+        "quantity": 4,
+        "price": 68.55
+      }
+    ],
+    "transaction_time": "2024-07-27T05:25:03Z",
+    "delivery_info": {
+      "status": "Delivered",
+      "delivery_time": "2024-07-31T06:33:03Z",
+      "address": {
+        "street": "915 Elm St",
+        "city": "Central City",
+        "state": "CA",
+        "zip": "58633"
+      }
+    }
+  },
+  {
+    "transaction_id": "T002",
+    "customer_id": "C007",
+    "items": [
+      {
+        "item_id": "I012",
+        "product_name": "Monitor",
+        "quantity": 2,
+        "price": 717.2
+      },
+      {
+        "item_id": "I002",
+        "product_name": "Laptop",
+        "quantity": 2,
+        "price": 350.18
+      },
+      {
+        "item_id": "I013",
+        "product_name": "Printer",
+        "quantity": 2,
+        "price": 1308.74
+      },
+      {
+        "item_id": "I010",
+        "product_name": "Monitor",
+        "quantity": 3,
+        "price": 462.98
+      }
+    ],
+    "transaction_time": "2024-07-27T06:27:03Z",
+    "delivery_info": {
+      "status": "Shipped",
+      "delivery_time": "2024-07-31T06:33:03Z",
+      "address": {
+        "street": "547 Main St",
+        "city": "Gotham",
+        "state": "CA",
+        "zip": "29183"
+      }
+    }
+  },
+  {
+    "transaction_id": "T003",
+    "customer_id": "C009",
+    "items": [
+      {
+        "item_id": "I017",
+        "product_name": "Keyboard",
+        "quantity": 3,
+        "price": 668.26
+      },
+      {
+        "item_id": "I009",
+        "product_name": "Mouse",
+        "quantity": 5,
+        "price": 546.11
+      },
+      {
+        "item_id": "I003",
+        "product_name": "Monitor",
+        "quantity": 1,
+        "price": 1315.48
+      }
+    ],
+    "transaction_time": "2024-07-27T05:32:03Z",
+    "delivery_info": {
+      "status": "Delivered",
+      "delivery_time": "2024-07-31T06:33:03Z",
+      "address": {
+        "street": "391 Main St",
+        "city": "Star City",
+        "state": "NJ",
+        "zip": "90833"
+      }
+    }
+  }
+]
