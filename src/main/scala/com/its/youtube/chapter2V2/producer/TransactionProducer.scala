@@ -1,7 +1,10 @@
-import java.util.Properties
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, Callback, RecordMetadata}
+package com.its.youtube.chapter2V2.producer
+
+
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord, RecordMetadata}
 import org.apache.kafka.common.serialization.StringSerializer
 import org.apache.spark.sql.SparkSession
+import java.util.Properties
 
 object TransactionProducer {
   def main(args: Array[String]): Unit = {
@@ -49,6 +52,10 @@ object TransactionProducer {
 
     // Stop the SparkSession
     spark.stop()
+
   }
 }
+
+
+
 

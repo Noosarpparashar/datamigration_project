@@ -1,13 +1,15 @@
-import scala.io.Source
-import org.apache.avro.Schema
-import org.apache.avro.generic.GenericData
-import org.apache.avro.generic.GenericRecord
-import java.util.Properties
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, Callback, RecordMetadata}
+package com.its.youtube.chapter2V2.producer
+
 import io.confluent.kafka.serializers.KafkaAvroSerializer
+import org.apache.avro.Schema
+import org.apache.avro.generic.{GenericData, GenericRecord}
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord, RecordMetadata}
 import org.apache.spark.sql.SparkSession
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
+
+import java.util.Properties
+import scala.io.Source
 
 object TransactionProducerV2Test {
   def main(args: Array[String]): Unit = {
@@ -110,7 +112,7 @@ object TransactionProducerV2Test {
     val producer = new KafkaProducer[String, GenericRecord](broadcastKafkaProperties.value)
 
     // Create a ProducerRecord with the Avro record
-    val producerRecord = new ProducerRecord[String, GenericRecord]("test-topic1", null, record) // Use `null` for key if not needed
+    val producerRecord = new ProducerRecord[String, GenericRecord]("test-topic-v2", null, record) // Use `null` for key if not needed
 
     // Send to Kafka
     producer.send(producerRecord, new Callback {

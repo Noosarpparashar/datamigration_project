@@ -21,18 +21,17 @@ val dependencies = Seq(
   "com.amazon.redshift" % "redshift-jdbc42" % "2.1.0.24",
   "com.softwaremill.macwire" %% "macros" % "2.4.0" % Provided,
   "org.apache.logging.log4j" % "log4j-core" % "2.22.1",
-  "net.snowflake" % "snowflake-jdbc" % "3.16.0",
-  "net.snowflake" %% "spark-snowflake" % "2.15.0-spark_3.3"
-
-
-
-
-
+  "net.snowflake" % "snowflake-jdbc" % "3.18.0",
+  "net.snowflake" %% "spark-snowflake" % "3.0.0",
+  "io.confluent" % "kafka-avro-serializer" % "7.0.1",
+  "io.confluent" % "kafka-schema-registry-client" % "7.0.1",
+  "org.apache.spark" %% "spark-mllib" % "3.0.1"
 
 
 
 
 )
+resolvers += "Confluent" at "https://packages.confluent.io/maven/"
 libraryDependencies ++=dependencies
 
 assemblyMergeStrategy in assembly := {

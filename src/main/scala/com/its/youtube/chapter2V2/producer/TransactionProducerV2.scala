@@ -1,14 +1,16 @@
-import java.util.Properties
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, Callback, RecordMetadata}
-import org.apache.kafka.common.serialization.StringSerializer
+package com.its.youtube.chapter2V2.producer
+
 import io.confluent.kafka.serializers.KafkaAvroSerializer
 import org.apache.avro.Schema
-import org.apache.avro.generic.GenericData
-import org.apache.avro.generic.GenericRecord
+import org.apache.avro.generic.{GenericData, GenericRecord}
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord, RecordMetadata}
 import org.apache.spark.sql.SparkSession
-import scala.io.Source
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
+
+import java.util.Properties
+import scala.io.Source
+
 
 object TransactionProducerV2 {
   def main(args: Array[String]): Unit = {
@@ -86,7 +88,7 @@ object TransactionProducerV2 {
           record.put("isFraud", (json \ "isFraud").extract[Boolean])
 
           // Send to Kafka
-          val producerRecord = new ProducerRecord[String, GenericRecord]("test-topic", record)
+          val producerRecord = new ProducerRecord[String, GenericRecord]("test-topic-v2", record)
           producer.send(producerRecord, new Callback {
             override def onCompletion(metadata: RecordMetadata, exception: Exception): Unit = {
               if (exception != null) {
@@ -105,4 +107,5 @@ object TransactionProducerV2 {
     // Stop the SparkSession
     spark.stop()
   }
+
 }

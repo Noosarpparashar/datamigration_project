@@ -1,8 +1,9 @@
-package com.its.youtube.chapter2
+package com.its.youtube.chapter2V2.producer
 
-import java.util.Properties
+
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
+import java.util.Properties
 object KafkaProducerTest {
   def main(args: Array[String]): Unit = {
     val props = new Properties()
@@ -17,10 +18,9 @@ object KafkaProducerTest {
       val record = new ProducerRecord[String, String](topic, "key", "test message")
       producer.send(record)
       print("hello")
-
-
     } finally {
       producer.close()
     }
   }
 }
+

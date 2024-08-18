@@ -1,11 +1,11 @@
-package com.its.youtube.chapter2
+package com.its.youtube.chapter2V2.consumer
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.streaming.Trigger
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.streaming.Trigger
 import org.apache.spark.sql.types._
 //import org.apache.spark.sql.avro._
-import org.apache.kafka.common.serialization.StringDeserializer
+
 
 object FraudDetectionApp {
   def main(args: Array[String]): Unit = {
@@ -13,12 +13,11 @@ object FraudDetectionApp {
       .appName("FraudDetectionApp")
       .master("local[*]")
       .getOrCreate()
-    import spark.implicits._
 
     // Define Kafka parameters
     val kafkaParams = Map[String, String](
       "kafka.bootstrap.servers" -> "localhost:9092,localhost:9093,localhost:9094",
-      "subscribe" -> "test-topic",
+      "subscribe" -> "test-topic-v2",
       "startingOffsets" -> "earliest",
       "value.deserializer" -> "io.confluent.kafka.serializers.KafkaAvroDeserializer",
       "key.deserializer" -> "org.apache.kafka.common.serialization.StringDeserializer",
@@ -84,17 +83,15 @@ object FraudDetectionApp {
         col("data.expirationDateKeyInMatch")
       )
 
-    // Apply fraud detection logic
+    // Apply filter condition or fraud detection logic
     val flaggedTransactions = transactions.filter(col("transactionAmount") > 500)
 
     // Output flagged transactions to console
-//    val query = flaggedTransactions.writeStream
-//      .outputMode("append")
-//      .format("console")
-//      .trigger(Trigger.ProcessingTime("10 seconds"))
-//      .start()
-
-
+    //    val query = flaggedTransactions.writeStream
+    //      .outputMode("append")
+    //      .format("console")
+    //      .trigger(Trigger.ProcessingTime("10 seconds"))
+    //      .start()
 
 
     /*val query = flaggedTransactions.writeStream
@@ -106,16 +103,15 @@ object FraudDetectionApp {
       .trigger(Trigger.ProcessingTime("10 seconds"))
       .start()*/
 
+
     val query = flaggedTransactions.writeStream
       .outputMode("append")
       .format("parquet") // You can use "csv" or other formats if needed
       .option("header", "true")
-      .option("path", "src/main/scala/com/its/youtube/chapter2/output/fraud_data") // Replace with your local folder path
-      .option("checkpointLocation", "src/main/scala/com/its/youtube/chapter2/output/checkpoint") // Replace with your checkpoint folder path
+      .option("path", "src/main/scala/com/its/youtube/chapter2V2/output/fraud_data") // Replace with your local folder path
+      .option("checkpointLocation", "src/main/scala/com/its/youtube/chapter2V2/output/checkpoint") // Replace with your checkpoint folder path
       .trigger(Trigger.ProcessingTime("10 seconds"))
       .start()
-
-
 
 
     query.awaitTermination()
